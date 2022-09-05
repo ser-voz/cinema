@@ -1,0 +1,246 @@
+//$font-url: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap';
+$font-url: 'https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap';
+@import url($font-url);
+
+body {
+    background: var(--main);
+    color: var(--color-3);
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin: 0;
+    padding-right: 5px;
+}
+
+:root {
+    --dark-grey: #484848;
+    --black:     #0c0c0c;
+    --grey-light:#CDD1DA;
+    --dark-green:#1f3821;
+    --light:     #f3f3f3;
+    --green:     #04dd00;
+}
+
+html:not(.light-mode) {
+    --color-1: var(--dark-grey);
+    --color-2: var(--dark-green);
+    --color-3: var(--light);
+    --color-4: var(--grey-light);
+    --font:    var(--light);
+    --main:    var(--black);
+    --main2:   var(--green);
+}
+
+
+
+html.light-mode {
+    --main: var(--dark-grey);
+}
+
+::-webkit-scrollbar {
+    height: 0;
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-1);
+    border-radius: 3px;
+    height: 0;
+    width: 3px;
+
+}
+
+::-webkit-scrollbar-track {
+    background: var(--main);
+}
+
+*, :before, :after {
+    box-sizing: border-box;
+}
+
+
+a {
+    color: var(--color-3);
+    transition: opacity .2s ease-in-out;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.menu {
+    a {
+        font-size: 1.2em;
+        font-weight: 500;
+    }
+}
+
+a:hover {
+    opacity: 1;
+}
+
+h1 {
+    font-size: 2.5em;
+    width: 100%;
+    margin-top: 0;
+}
+h2 {
+    font-size: 2em;
+    font-weight: 600;
+    margin-top: 0;
+}
+h3 {
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+p {
+    line-height: 1.5rem;
+    font-weight: 400;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li:last-child {
+    margin-bottom: 0;
+}
+
+p {
+    font-weight: 400;
+    margin: 0;
+}
+
+button {
+    font-family: "Rubik", sans-serif;
+    transition: all .2s ease;
+}
+
+input[type=text] {
+    background: transparent;
+    border: 2px solid var(--light);
+    border-radius: 5px;
+    color: var(--light);
+    display: block;
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+    min-width: 250px;
+    opacity: 0.7;
+    outline: none;
+    padding: 7px 10px;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s  ease;
+    -ms-transition: all .2s  ease;
+    -o-transition: all .2s  ease;
+    transition: all .2s  ease;
+    width: 100%;
+
+    &:focus {
+        opacity: 1;
+    }
+}
+
+input[type=text]::placeholder {
+    color: var(--light);
+    font-weight: 300;
+    font-size: .9em;
+}
+
+input[type="checkbox"], input[type="radio"]{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+#app {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 1em 2em;
+    max-width: 87em;
+    width: 100%;
+}
+
+label.checkbox-wrap {
+    background: var(--color-4);
+    border-radius: 13px;
+    box-shadow: inset 0 2px 3px rgb(0 0 0 / 20%);
+    cursor: pointer;
+    height: 26px;
+    margin-right: 5px;
+    overflow: hidden;
+    position: relative;
+    transition: all .2s ease;
+    width: 50px;
+    span {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transition: all .2s ease;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 22px;
+            height: 22px;
+            border-radius: 10px;
+            background: #FFF;
+            box-shadow: 0 2px 5px rgb(0 0 0 / 30%);
+            transition: all .2s ease;
+        }
+    }
+    input:checked ~ span {
+        background: var(--main2);
+        &:before {
+            left: 26px;
+        }
+
+    }
+}
+
+label.radio-wrap {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    .circle {
+        border: 1px solid #CDD1DA;
+        border-radius: 50%;
+        background: #FFF;
+        display: block;
+        height: 22px;
+        position: relative;
+        width: 22px;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--main2);
+            box-shadow: inset 0 1px 1px rgb(0 0 0 / 50%);
+            opacity: 0;
+            transition: .2s;
+        }
+    }
+    input:checked  {
+        ~ .circle {
+            &:before {
+                opacity: 1;
+            }
+        }
+        ~ .text {
+            color: var(--main2)
+        }
+    }
+
+}

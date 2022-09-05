@@ -1,0 +1,1 @@
+interface Component {name: string}
