@@ -20,12 +20,12 @@ const router = createRouter({
         {
             name: 'innerPage',
             path: '/:type/:id',
-            component: () => import('@/views/Page.vue'),
+            component: () => import('@/views/InnerView.vue'),
         },
         {
             name: 'genrePage',
-            path: '/genre/:name',
-            component: () => import('@/views/GenrePage.vue'),
+            path: '/genre/:id-:name/:type',
+            component: () => import('@/views/GenreView.vue'),
         },
 
     ]
