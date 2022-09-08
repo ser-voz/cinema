@@ -1,9 +1,7 @@
 $font-url: 'https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap';
 @import url($font-url);
 
-html {
-    background: var(--main);
-}
+
 body {
     background: var(--main);
     color: var(--color-3);
@@ -11,8 +9,8 @@ body {
     font-size: 16px;
     letter-spacing: 1px;
     margin: 0;
+    padding: 0 calc(10px - (100vw - 100%)) 0 0;
 }
-
 :root {
     --dark-grey: #444444;
     --black:     #0c0c0c;
@@ -21,6 +19,8 @@ body {
     --light:     #f3f3f3;
     --green:     #04dd00;
 }
+
+
 
 html:not(.light-mode) {
     --color-1: var(--dark-grey);
@@ -32,7 +32,10 @@ html:not(.light-mode) {
     --main2:   var(--green);
 }
 
-
+html {
+    scrollbar-color: var(--color-1) var(--main);
+    scrollbar-width: thin;
+}
 
 html.light-mode {
     --main: var(--dark-grey);
@@ -40,7 +43,7 @@ html.light-mode {
 
 ::-webkit-scrollbar {
     height: 0;
-    width: 5px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {

@@ -14,9 +14,9 @@ export const loadingStore = defineStore({
             this.isLoading = status;
         },
         setFirstLoad() {
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflowY = 'hidden';
             setTimeout(() => this.firstLoad = true, 2000);
-            setTimeout(() => document.body.style.overflow = 'auto', 2100);
+            setTimeout(() => document.body.style.overflowY = 'auto', 2100);
         }
     }
 })

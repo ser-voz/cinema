@@ -4,10 +4,8 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: "FirstLoader"
-}
+<script lang="ts">
+
 </script>
 
 <style scoped lang="scss">

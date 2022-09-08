@@ -1,15 +1,3 @@
-<template>
-    <div class="card-item" @click="$router.push(`/${props.item.media_type}/${props.item.id}`)">
-        <div class="card-item__img">
-            <img :src="'https://www.themoviedb.org/t/p/w300_and_h450_face'+props.item.poster_path" alt="">
-        </div>
-        <div class="card-item__info">
-            <p class="card-item__title">{{ props.item.title || props.item.name }}</p>
-            <span class="card-item__year">{{ year(props.item.release_date || props.item.first_air_date) }}</span>
-        </div>
-    </div>
-</template>
-
 <script setup lang="ts">
 const props = defineProps({
     item: Object
@@ -19,7 +7,20 @@ const props = defineProps({
 const year = (date: number) => {
     return String(date).replace(/-.*/, '');
 }
+
 </script>
+
+<template>
+    <div class="card-item" @click="$router.push(`/${props.item.media_type || $route.params.type}/${props.item.id}`)">
+        <div class="card-item__img">
+            <img :src="'https://www.themoviedb.org/t/p/w300_and_h450_face'+props.item.poster_path" :alt="props.item.title || props.item.name">
+        </div>
+        <div class="card-item__info">
+            <p class="card-item__title">{{ props.item.title || props.item.name }}</p>
+            <span class="card-item__year">{{ year(props.item.release_date || props.item.first_air_date) }}</span>
+        </div>
+    </div>
+</template>
 
 <style scoped lang="scss">
 .card-item {

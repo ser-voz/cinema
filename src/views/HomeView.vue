@@ -14,7 +14,7 @@ store.getTrends();
 <template>
     <div v-if="!loadingStore().isLoading">
         <div class="title-nav">
-            <h2>Top Rated</h2>
+            <h2>Trending</h2>
             <div class="paginate">
                 <LeftArrow :class="{'disabled': store.page <= 1}"  @click="store.changePage('minus')" />
                 <RightArrow :class="{'disabled': store.hasNextPage}"  @click="store.changePage('plus')" />

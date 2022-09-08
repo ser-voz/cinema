@@ -34,8 +34,6 @@ export const trendsStore = defineStore({
             try {
                 loadingStore().getStatus(true);
                 const response = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${key}&page=1`);
-                // const response2 = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${key}&with_genres=28`);
-                // console.log(response2);
                 this.items = response.data.results;
             } catch (err) {
                 console.log(err);

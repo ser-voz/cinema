@@ -43,7 +43,6 @@ const genresPrev = () => {
 }
 
 const genresNext = () => {
-    console.log(genres__wrap);
     store.genresClick(true);
     const genres = genres__wrap.value;
     let scroll = (genres.scrollWidth - genres.clientWidth) / 2;

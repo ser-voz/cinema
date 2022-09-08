@@ -21,7 +21,7 @@ loadingStore().setFirstLoad();
             <Loading v-if="loadingStore().isLoading" />
             <router-view  v-slot="{ Component, route }">
                 <Transition  name="scale" mode="out-in">
-                    <component :key="route.name" :is="Component"></component>
+                    <component :key="route.params.id || route.name" :is="Component"></component>
                 </Transition>
             </router-view>
         </main>
