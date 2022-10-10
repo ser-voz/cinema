@@ -27,6 +27,16 @@ const router = createRouter({
             path: '/genre/:id-:name/:type',
             component: () => import('@/views/GenreView.vue'),
         },
+        {
+            name: 'listPage',
+            path: '/:type',
+            component: () => import('@/views/ListView.vue'),
+        },
+        {
+            name: 'searchPage',
+            path: '/search/:searchValue',
+            component: () => import('@/views/SearchView.vue'),
+        },
 
     ]
 })

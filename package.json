@@ -1,6 +1,6 @@
 {
   "name": "cinema_ts",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "pinia": "^2.0.16",
+    "swiper": "^8.4.3",
     "vue": "^3.2.37",
     "vue-router": "^4.1.2"
   },

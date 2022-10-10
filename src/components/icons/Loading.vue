@@ -78,6 +78,6 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        //background-color: rgba(0, 0, 0, 0.5);
+        //background-color: rgba(0, 0, 0, 0.3);
     }
 </style>

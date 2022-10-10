@@ -7,6 +7,7 @@ import router from './router'
 import components from './components/UI'
 
 import './assets/main.scss'
+import VIntersection from "@/directives/Vintersection";
 
 const app = createApp(App)
 const pinia = createPinia()
@@ -16,5 +17,7 @@ components.forEach(component => {
 })
 
 
-
-app.use(pinia).use(router).mount('#app')
+app.use(pinia)
+    .use(router)
+    .directive('intersection', VIntersection)
+    .mount('#app')

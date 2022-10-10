@@ -1,65 +1,72 @@
 <script setup lang="ts">
-import ListItems from '@/components/ListItems.vue'
-import RightArrow from "@/components/icons/RightArrow.vue";
-import LeftArrow from "@/components/icons/LeftArrow.vue";
-
 import {trendsStore} from "@/stores/trends";
 import {loadingStore} from "@/stores/pageLoading";
+import SwiperSlider from "@/components/SwiperSlider.vue";
+import ListItems from '@/components/ListItems.vue'
 
 const store = trendsStore();
 store.getTrends();
-
 </script>
 
 <template>
-    <div v-if="!loadingStore().isLoading">
-        <div class="title-nav">
-            <h2>Trending</h2>
-            <div class="paginate">
-                <LeftArrow :class="{'disabled': store.page <= 1}"  @click="store.changePage('minus')" />
-                <RightArrow :class="{'disabled': store.hasNextPage}"  @click="store.changePage('plus')" />
+    <div >
+        <div v-if="!loadingStore().isLoading">
+            <SwiperSlider :items="store.items"
+                          :title="'Trending'"/>
+            <div class="popular">
+                <div class="popular__header">
+                    <h2>
+                        Popular Movies
+                    </h2>
+                    <RouterLink class="genres__item"
+                                :to="{path: `/movie`}">
+                        View more
+                    </RouterLink>
+                </div>
+                <transition name="fade" mode="out-in">
+                    <ListItems :items="store.popularMovies.slice(0, 5)" :type="'movie'" />
+                </transition>
+            </div>
+            <div class="popular">
+                <div class="popular__header">
+                    <h2>Popular TV Shows</h2>
+                    <RouterLink class="genres__item"
+                                :to="{path: `/tv`}">
+                        View more
+                    </RouterLink>
+                </div>
+                <transition name="fade" mode="out-in">
+                    <ListItems :items="store.popularTV.slice(0, 5)" :type="'tv'"/>
+                </transition>
             </div>
         </div>
-        <div class="top">
-            <transition name="fade" mode="out-in">
-                <ListItems :items="store.paginated" :key="store.page" />
-            </transition>
-        </div>
     </div>
+
 </template>
 <style scoped lang="scss">
-
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity .4s ease;
-}
-.fade-enter-from,
-.fade-leave-to {
-    opacity: .1;
-}
 
 .title-nav {
     align-items: flex-start;
     display: flex;
 }
 
-.paginate {
+.popular__header {
+    align-items: flex-start;
     display: flex;
-    width: 100px;
-    margin: 3px 0 0 auto;
-    text-transform: uppercase;
-    justify-content: flex-end;
-    div {
-        cursor: pointer;
-        &:last-child {
-            margin-left: 10px;
+    justify-content: space-between;
+    a {
+        border: 2px solid var(--main2);
+        border-radius: 20px;
+        background: rgba(0, 0, 0, 0.6);
+        margin-top: 5px;
+        padding: 5px 15px;
+        transition: all .2s ease;
+        &:hover {
+            background: var(--main2);
+            color: var(--main);
         }
     }
 }
-.top {
-    .list {
-        display: flex;
-        flex-wrap: wrap;
-    }
-}
+
+
 </style>

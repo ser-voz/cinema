@@ -1,16 +1,29 @@
-$font-url: 'https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap';
+@import "variables";
+@import "breakpoints";
+$font-url: 'https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap';  ;
 @import url($font-url);
-
 
 body {
     background: var(--main);
     color: var(--color-3);
     font-family: 'Rubik', sans-serif;
+    //font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     letter-spacing: 1px;
     margin: 0;
     padding: 0 calc(10px - (100vw - 100%)) 0 0;
+    text-shadow: 0 0 1px #000;
+    @include media-max(sm) {
+        font-size: 14px;
+    }
 }
+
+.no-scroll {
+    padding-right: 10px;
+    overflow: hidden;
+
+}
+
 :root {
     --dark-grey: #444444;
     --black:     #0c0c0c;
@@ -18,6 +31,7 @@ body {
     --dark-green:#1f3821;
     --light:     #f3f3f3;
     --green:     #04dd00;
+    --index: calc(1vw + 1vh);
 }
 
 
@@ -170,6 +184,9 @@ input[type="checkbox"], input[type="radio"]{
     padding: 1em 2em;
     max-width: 87em;
     width: 100%;
+    @include media-max(sm) {
+        padding: 1em;
+    }
 }
 
 label.checkbox-wrap {
@@ -246,5 +263,84 @@ label.radio-wrap {
             color: var(--main2)
         }
     }
+}
 
+
+.scale {
+    &-enter {
+        &-active {
+            transition: all 300ms ease;
+        }
+        &-from {
+            opacity: 0;
+            transform: scale(1.1);
+        }
+        &-to {
+            opacity: 1;
+        }
+    }
+    &-leave {
+        &-active {
+            transition: all 300ms ease;
+        }
+        &-from {
+            opacity: 1;
+        }
+        &-to {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+    }
+}
+
+.fade {
+    &-enter {
+        &-active {
+            transition: opacity .2s ease-in-out;
+        }
+        &-from {
+            opacity: .1;
+        }
+    }
+    &-leave {
+        &-active {
+            transition: opacity .2s ease-in-out;
+        }
+        &-to {
+            opacity: .1;
+        }
+    }
+}
+
+.skeleton-img {
+    background-color: #DDDBDD;
+    overflow: hidden;
+    position: relative;
+    &::after {
+        animation: shimmer 2s infinite;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: translateX(-100%);
+        background-image: linear-gradient(
+                        90deg,
+                        rgba(#fff, 0) 0,
+                        rgba(#fff, 0.2) 20%,
+                        rgba(#fff, 0.5) 60%,
+                        rgba(#fff, 0)
+        );
+
+    }
+    img {
+        position: relative;
+        z-index: 1;
+    }
+    @keyframes shimmer {
+        100% {
+            transform: translateX(100%);
+        }
+    }
 }

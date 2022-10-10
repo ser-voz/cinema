@@ -6,7 +6,7 @@ export default  {
             rootMargin: '8px',
             threshold: 1.0
         };
-        const callback = (entries: any) => {
+        const callback = (entries: any, observer: any) => {
             if(entries[0].isIntersecting) {
                 binding.value();
             }

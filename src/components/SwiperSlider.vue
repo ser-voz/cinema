@@ -51,7 +51,7 @@ const navigation = {
     </div>
 </template>
 
-<style scoped lang="scss">
+<style  lang="scss">
 .slider {
     .swiper {
         &:hover {
@@ -84,6 +84,8 @@ const navigation = {
             }
         }
     }
+
+
 }
 
 </style>

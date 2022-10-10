@@ -3,17 +3,5 @@ const myImdb = '00110010 01100100 00110000 01100001 00110000 00111001 00110011 0
 
 const key = myKey.split(' ').map(bin => String.fromCharCode(parseInt(bin, 2))).join('');
 
-const getRating = (): any => {
-    // fetch('https://imdb8.p.rapidapi.com/title/get-ratings?tconst=tt0944947', {
-    //     headers: {
-    //         'X-RapidAPI-Key': myImdb,
-    //         'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
-    //     }
-    // })
-    //     .then(response => response.json())
-    //     .then(response => console.log(response))
-    //     .catch(err => console.error(err));
-
-};
 
 export default key;
