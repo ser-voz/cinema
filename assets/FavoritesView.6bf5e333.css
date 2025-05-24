@@ -1,0 +1,1 @@
+.favorites-page{display:flex;flex-wrap:wrap;gap:1rem}.favorites-page .card-item{margin:0;width:calc(16.6666666667% - .84rem)}.favorites-page .card-item__img{height:auto}.favorites-page .card-item__title{font-size:.9em;-webkit-line-clamp:1}
